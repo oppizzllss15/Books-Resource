@@ -1,0 +1,56 @@
+[
+  {
+    "id": "fa502a8c",
+    "name": "Opeyemi Ogungbade",
+    "email": "opeyemi.ogungbade@gmail.com",
+    "password": "$2a$10$OimxJ93/E0X9XzeITCgrouWhfa2rZtFVC1U0.DuOPPaJGN6Junrbm"
+  },
+  {
+    "id": "85f76936",
+    "name": "Ogungbade Opeyemi",
+    "email": "opeyemi.ogungbade@gmail.com",
+    "password": "$2a$10$6WA8RD2rwA/qLv0DYELg8uCUNCOv.LA0wlvab.6TV7LTEeRqNh3OW"
+  },
+  {
+    "id": "7f8ed0f3",
+    "name": "Zabaleta Aguero",
+    "email": "opeyemi.ogungbade@yahoo.com",
+    "password": "$2a$10$R8nf0PF4HJYh1Fr6xXgzC.s3lhQaX.VCCcX4cwchVEiZS5z6Z1h8e"
+  },
+  {
+    "id": "6f1600de",
+    "name": "Zabaleta Jumia",
+    "email": "opeyemi.ogungbade@yahoo.com",
+    "password": "$2a$10$aT.5NXDtmuLzucny1tLhEei5gIz80B0eDz5CFTj7vNwgpb/2UbRki"
+  },
+  {
+    "id": "74e6f042",
+    "name": "Zab",
+    "email": "opeyemi.ogungbade@outlook.com",
+    "password": "$2a$10$53xwglQeJ8a09xbNtpFEmO1QhblCHdajgBmibaoQt3TvZVqGP.MDu"
+  },
+  {
+    "id": "dacef6f1",
+    "name": "Zab",
+    "email": "opeyemi.ogungbade@outlook.com",
+    "password": "$2a$10$RirXl1g92MwUyKyojYjgUONVHIftEIq1/MMVwkMDbxEZNQ492Bvgi"
+  },
+  {
+    "id": "286fe82c",
+    "name": "Zab",
+    "email": "opeyemi.ogungbade@decagon.com",
+    "password": "$2a$10$EWUCQOJZEvV3gHUgCQ4kiuPritolC5CmodWXdlrYEk.3kQLtYr4f6"
+  },
+  {
+    "id": "b5c7f121",
+    "name": "Zab",
+    "email": "opeyemi.ogungbade@decagon.dev",
+    "password": "$2a$10$Z21BAoZlm.SGwZYmFE2GgujIOUQUNqDyYHnOYA5waOOjjWNSFsNvy"
+  },
+  {
+    "id": "7aa40f7a",
+    "name": "Decagon Dev",
+    "email": "admin@decagon.dev",
+    "password": "$2a$10$DmYQqrZHk8bwuymoljEEyuDFbCmcfRmSQAM2Fz8TT84YSgFBd.DRm"
+  }
+]

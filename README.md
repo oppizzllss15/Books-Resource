@@ -46,7 +46,7 @@ Host your application on Heroku
         “Title”: “A Promised Land”,
         “Author”: “Barack Obama”,
         “datePublished”: “2020-0-12T19:0455.455z”,
-        “Description”:  “A Promised Land is a memoir by Barack Obama, the 44th President of the United States from 2009 to 2017. Published on November 17, 2020, it         is the first of a planned two-volume series”
+        “Description”:  “A Promised Land is a memoir by Barack Obama, the 44th President of the United States from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series”
         “pageCount”: 768,
         “Genre”: “autobiography”,
         “bookId”: 1,
