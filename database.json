@@ -1,1 +1,62 @@
-[{"Title":"My Travails in Decagon","Author":"Joshua Adeyemo","datePublished":"2020-0-12T19:0455.455z","Description":"A Promised Land is a memoir by Joshua Adeyemo, the 44th decadev from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series","pageCount":500,"Genre":"autobiography","bookId":1,"Publisher":"Riley and Sons"},{"Title":"A Promised Land","Author":"Barack Obama 2","datePublished":"2020-0-12T19:0455.455z","Description":"A Promised Land is a memoir by Barack Obama, the 44th President of the United States from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series","pageCount":250,"Genre":"autobiography","bookId":2,"Publisher":"Crown"},{"Title":"The Story of Yusuf","Author":"Yusuf The Bad Guy","datePublished":"2020-0-12T19:0455.455z","Description":"A Promised Land is a memoir by Joshua Adeyemo, the 44th decadev from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series","pageCount":800,"Genre":"autobiography","bookId":3,"Publisher":"Riley and Sons"},{"Title":"Ekene na mugu","Author":"Yusuf The Bad Guy","datePublished":"2020-0-12T19:0455.455z","Description":"A Promised Land is a memoir by Joshua Adeyemo, the 44th decadev from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series","pageCount":800,"Genre":"autobiography","bookId":4,"Publisher":"Riley and Sons"},{"Title":"All Guys in Lagos Are Mad","Author":"Feminist Coven","datePublished":"2020-0-12T19:0455.455z","Description":"A Promised Land is a memoir by Joshua Adeyemo, the 44th decadev from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series","pageCount":150,"Genre":"autobiography","bookId":5,"Publisher":"Riley and Sons"},{"Title":"All Guys in Lagos","Author":"Feminist Coven","datePublished":"2020-0-12T19:0455.455z","Description":"A Promised Land is a memoir by Joshua Adeyemo, the 44th decadev from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series","pageCount":250,"Genre":"autobiography","bookId":6,"Publisher":"Riley and Sons"}]
+[
+  {
+    "Title": "My Travails in Decagon",
+    "Author": "Joshua Adeyemo",
+    "datePublished": "2020-0-12T19:0455.455z",
+    "Description": "A Promised Land is a memoir by Joshua Adeyemo, the 44th decadev from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series",
+    "pageCount": 500,
+    "Genre": "autobiography",
+    "bookId": 1,
+    "Publisher": "Riley and Sons"
+  },
+  {
+    "Title": "A Promised Land",
+    "Author": "Barack Obama 2",
+    "datePublished": "2020-0-12T19:0455.455z",
+    "Description": "A Promised Land is a memoir by Barack Obama, the 44th President of the United States from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series",
+    "pageCount": 250,
+    "Genre": "autobiography",
+    "bookId": 2,
+    "Publisher": "Crown"
+  },
+  {
+    "Title": "The Story of Yusuf",
+    "Author": "Yusuf The Bad Guy",
+    "datePublished": "2020-0-12T19:0455.455z",
+    "Description": "A Promised Land is a memoir by Joshua Adeyemo, the 44th decadev from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series",
+    "pageCount": 800,
+    "Genre": "autobiography",
+    "bookId": 3,
+    "Publisher": "Riley and Sons"
+  },
+  {
+    "Title": "Ekene na mugu",
+    "Author": "Yusuf The Bad Guy",
+    "datePublished": "2020-0-12T19:0455.455z",
+    "Description": "A Promised Land is a memoir by Joshua Adeyemo, the 44th decadev from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series",
+    "pageCount": 800,
+    "Genre": "autobiography",
+    "bookId": 4,
+    "Publisher": "Riley and Sons"
+  },
+  {
+    "Title": "All Guys in Lagos Are Mad",
+    "Author": "Feminist Coven",
+    "datePublished": "2020-0-12T19:0455.455z",
+    "Description": "A Promised Land is a memoir by Joshua Adeyemo, the 44th decadev from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series",
+    "pageCount": 150,
+    "Genre": "autobiography",
+    "bookId": 5,
+    "Publisher": "Riley and Sons"
+  },
+  {
+    "Title": "All Guys in Lagos",
+    "Author": "Feminist Coven",
+    "datePublished": "2020-0-12T19:0455.455z",
+    "Description": "A Promised Land is a memoir by Joshua Adeyemo, the 44th decadev from 2009 to 2017. Published on November 17, 2020, it is the first of a planned two-volume series",
+    "pageCount": 250,
+    "Genre": "autobiography",
+    "bookId": 6,
+    "Publisher": "Riley and Sons"
+  }
+]

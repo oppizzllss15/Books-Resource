@@ -23,12 +23,15 @@ const verifyJWT = (req: Request, res: Response, next: NextFunction) => {
         next();
       }
     } catch (error) {
-      res.status(401)
-      throw new Error('Not authourized');
+      res.status(401).json({
+        Message: "Not authorized!",
+      });
     }
   }
   if (!token) {
     res.status(401);
-    res.redirect('/users/login')
+    res.redirect("/users/login");
   }
 };
+
+export { verifyJWT };

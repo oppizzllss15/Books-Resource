@@ -25,20 +25,18 @@ const booksDatabase = JSON.parse((0, fs_2.readFileSync)(filepath).toString());
 const getAllBooks = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield (0, bookModels_1.checkBooks)();
     if (!data) {
-        res.status(500).json({
+        res.status(500).render('books', {
             status: "Failed",
             message: "Database Has No Books!",
         });
     }
     else {
-        res.status(200).json({
+        res.status(200).render('books', {
             status: "Successful",
-            result: booksDatabase.length > 1
+            message: booksDatabase.length > 1
                 ? `${booksDatabase.length} books`
                 : `${booksDatabase.length} book`,
-            data: {
-                data,
-            },
+            data
         });
     }
 });

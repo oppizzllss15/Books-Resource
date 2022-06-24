@@ -37,7 +37,10 @@ const generateToken = (id) => {
 };
 exports.generateToken = generateToken;
 const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { email, password } = req.body;
+    const { email, password, confirm_password } = req.body;
+    if (password !== confirm_password) {
+        res.render('signup', { message: 'Password does not match' });
+    }
     // check if user exists
     userDataDatabase.forEach((user) => {
         if (user.email === email) {
@@ -57,10 +60,6 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         email: req.body.email,
         password: hashedPassword,
     };
-    if (user) {
-        let userToken = generateToken(user.id);
-        res.cookie("Token", userToken);
-    }
     // push file to database and write new user to database.
     userDataDatabase.push(user);
     (0, fs_1.writeFile)(userDatabasePath, JSON.stringify(userDataDatabase), (err) => {
@@ -71,15 +70,30 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
             });
         }
         else {
-            res.status(201).json({
-                status: "Successful",
-                message: "Registeration successful",
-                data: {
-                    userId: user.id,
-                    username: user.name,
-                    useremail: user.email,
-                },
-            });
+            if (user) {
+                let userToken = generateToken(user.id);
+                res
+                    .status(201)
+                    .cookie("Token", userToken)
+                    .json({
+                    status: "Successful",
+                    message: "Registeration successful",
+                    data: {
+                        userId: user.id,
+                        username: user.name,
+                        useremail: user.email,
+                    },
+                });
+            }
+            // res.status(201).json({
+            //   status: "Successful",
+            //   message: "Registeration successful",
+            //   data: {
+            //     userId: user.id,
+            //     username: user.name,
+            //     useremail: user.email,
+            //   },
+            // });
         }
     });
 });

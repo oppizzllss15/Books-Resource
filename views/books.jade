@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div.home-hero
+    - if (typeof message === 'string')
+        .message #{message} in store
+    .login-wrapper 
+      each item in data 
+        ul.book-info 
+          li <b>Title:</b> #{item.Title} 
+          li <b>Author:</b> #{item.Author} 
+          li <b>Genre:</b> #{item.Genre} 
+          li <b>Publisher:</b> #{item.Publisher} 
+          li <b>Published:</b> #{item.datePublished} 
+          li <b>Page count:</b> #{item.pageCount} 
+          li <b>Description:</b> #{item.Description}
+
+        

@@ -6,6 +6,7 @@ import {
   displayUsers,
 } from "../controllers/userController";
 import { validateLogin, validateUserReg } from "../Schema/userSchema";
+import { verifyJWT } from "../middleware/authentication";
 
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
@@ -13,8 +14,13 @@ const express = require("express");
 const router = express.Router();
 
 /* GET users listing. */
-router.get("/", function (req: Request, res: Response, next: NextFunction) {
-  res.send("respond with a resource");
+router.get("/:page", function (req: Request, res: Response, next: NextFunction) {
+  if (req.params.page === 'signup') {
+    res.render('signup', { title: 'Sign up' });
+  }
+  if(req.params.page === 'login') {
+    res.render('login', { title: 'Login' });
+  }
 });
 
 router.get("/data", displayUsers);

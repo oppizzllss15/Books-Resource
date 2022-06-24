@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.verifyJWT = void 0;
 const fs_1 = require("fs");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
@@ -21,12 +22,14 @@ const verifyJWT = (req, res, next) => {
             }
         }
         catch (error) {
-            res.status(401);
-            throw new Error('Not authourized');
+            res.status(401).json({
+                Message: "Not authorized!",
+            });
         }
     }
     if (!token) {
         res.status(401);
-        res.redirect('/users/login');
+        res.redirect("/users/login");
     }
 };
+exports.verifyJWT = verifyJWT;

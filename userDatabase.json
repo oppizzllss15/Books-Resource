@@ -52,5 +52,23 @@
     "name": "Decagon Dev",
     "email": "admin@decagon.dev",
     "password": "$2a$10$DmYQqrZHk8bwuymoljEEyuDFbCmcfRmSQAM2Fz8TT84YSgFBd.DRm"
+  },
+  {
+    "id": "ae04c794",
+    "name": "Decagon Dev Admin",
+    "email": "admin@decagon.dev",
+    "password": "$2a$10$p.R3c8eMrkbaH.GhjUNWNe8UTNJ0n5QVEWSI9xgjHcIxrSLd7Lmf2"
+  },
+  {
+    "id": "a96dcdf7",
+    "name": "Decagon Dev Admin",
+    "email": "admin2@decagon.dev",
+    "password": "$2a$10$7SWzKVmGntupiGgrKvFS1OEv15AVKdRYnARIllD7i1htecpTTe6j2"
+  },
+  {
+    "id": "c625b479",
+    "name": "Decagon Dev Admin",
+    "email": "admin2@decagon.dev",
+    "password": "$2a$10$6TyI2aryFjgctO8OkOB8b.d69dgP3nvrNeq1bCjMYdvntHRJRWUmK"
   }
 ]

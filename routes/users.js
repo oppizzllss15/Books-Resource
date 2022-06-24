@@ -7,8 +7,13 @@ const asyncHandler = require("express-async-handler");
 const express = require("express");
 const router = express.Router();
 /* GET users listing. */
-router.get("/", function (req, res, next) {
-    res.send("respond with a resource");
+router.get("/:page", function (req, res, next) {
+    if (req.params.page === 'signup') {
+        res.render('signup', { title: 'Sign up' });
+    }
+    if (req.params.page === 'login') {
+        res.render('login', { title: 'Login' });
+    }
 });
 router.get("/data", userController_1.displayUsers);
 router.route("/register").post(userSchema_1.validateUserReg, userController_1.registerUser);

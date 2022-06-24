@@ -17,20 +17,18 @@ const getAllBooks = async (req: Request, res: Response) => {
   const data = await checkBooks();
 
   if (!data) {
-    res.status(500).json({
+    res.status(500).render('books', {
       status: "Failed",
       message: "Database Has No Books!",
     });
   } else {
-    res.status(200).json({
+    res.status(200).render('books', {
       status: "Successful",
-      result:
+      message:
         booksDatabase.length > 1
           ? `${booksDatabase.length} books`
           : `${booksDatabase.length} book`,
-      data: {
-        data,
-      },
+      data
     });
   }
 };

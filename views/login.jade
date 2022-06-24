@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  div.home-hero
+    h1= title
+    p #{title} to access your Books<br><br><br>
+    form(method="post", action="/users/login")
+      .login-wrapper 
+        input.form-control(type='text', name='email', placeholder='Username or email', required)
+        input.form-control(type='password', name='password',placeholder="Password", required)
+        input.action-button(type='submit', value='Login')

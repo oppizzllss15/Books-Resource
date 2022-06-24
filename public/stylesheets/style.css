@@ -1,8 +1,87 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.home-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-hero h1 {
+  font-size: 3em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.home-hero p {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 100;
+  text-align: center;
+
+}
+
+.action-button:hover {
+  background-color: rgb(255, 192, 203);
+}
+
+.action-button:active {
+  background-color: rgba(196, 192, 255, 0.994);
+}
+.action-button {
+  text-decoration: none;
+  margin: 0 2em;
+  color: gray;
+  background-color: rgba(255, 192, 203, 0.462);
+  padding: 10px 15px;
+  line-height: 1.2em;
+  border: unset;
+  border-radius: 5px;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 100px;
+  border: 0.81px solid grey;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: rgba(196, 192, 255, 0.994) 2px solid;
+}
+
+.form-control {
+  margin: 12px 10px;
+  padding: 10px 5px;
+  border: 0.1px solid grey;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: 100;
+  width: 100%;
+}
+
+.message {
+  border-radius: 15px;
+  background-color: beige;
+  color: brown;
+  padding: 15px 25px;
+  text-align: center;
+  word-break: break-all;
+}
+
+.book-info {
+  list-style: none;
+  border: rgba(196, 192, 255, 0.994)  0.5px double;
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin-bottom: 5px;
 }
