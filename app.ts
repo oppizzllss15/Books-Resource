@@ -1,7 +1,5 @@
-import fs from "fs";
 import { HttpError } from "http-errors";
 import express, { Request, Response, NextFunction } from "express";
-import { generateToken } from "./controllers/userController";
 const dotenv = require("dotenv").config();
 
 const createError = require("http-errors");
@@ -10,12 +8,13 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const methodOverride = require("method-override");
 
 const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
+app.set("view engine", "ejs");
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -23,23 +22,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function (req: Request, res: Response, next: NextFunction) {
   next(createError(404));
 });
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-  console.log({
-    IpAddress: req.ip,
-    computerDetails: "MacBook Air, 2014",
-    route: req.originalUrl,
-  });
-  next();
-});
 // error handler
 app.use(function (
   err: HttpError,
@@ -55,5 +46,6 @@ app.use(function (
   res.status(err.status || 500);
   res.render("error");
 });
+
 
 module.exports = app;

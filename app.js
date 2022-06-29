@@ -11,28 +11,22 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const methodOverride = require("method-override");
 const app = (0, express_1.default)();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "jade");
+app.set("view engine", "ejs");
 app.use(logger("dev"));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express_1.default.static(path.join(__dirname, "public")));
+app.use(methodOverride("_method"));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
-});
-app.use((req, res, next) => {
-    console.log({
-        IpAddress: req.ip,
-        computerDetails: "MacBook Air, 2014",
-        route: req.originalUrl,
-    });
-    next();
 });
 // error handler
 app.use(function (err, req, res, next) {

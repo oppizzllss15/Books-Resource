@@ -1,5 +1,6 @@
 const Joi = require("joi");
 import { Request, Response, NextFunction } from "express";
+var debug = require("debug")("week-6-task:server");
 
 const registerSchema = Joi.object({
   name: Joi.string().min(3).required(),

@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
+import fs from "fs";
 import { readFileSync, writeFile } from "fs";
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
@@ -6,10 +7,14 @@ const jwt_key = process.env.JWT_KEY;
 
 const userDatabasePath = `${__dirname}/../userDatabase.json`;
 
+if (!fs.existsSync(userDatabasePath)) {
+  fs.writeFileSync(userDatabasePath, "[]");
+}
+
 const userDataDatabase = JSON.parse(readFileSync(userDatabasePath).toString());
 
-const verifyJWT = (req: Request, res: Response, next: NextFunction) => {
-  const token = req.cookies.token;
+export const verifyJWT = (req: Request, res: Response, next: NextFunction) => {
+  const token = req.cookies.Token;
 
   if (token) {
     try {
@@ -34,4 +39,4 @@ const verifyJWT = (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export { verifyJWT };
+// export { verifyJWT };

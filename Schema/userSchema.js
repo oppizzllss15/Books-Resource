@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateLogin = exports.validateUserReg = void 0;
 const Joi = require("joi");
+var debug = require("debug")("week-6-task:server");
 const registerSchema = Joi.object({
     name: Joi.string().min(3).required(),
     email: Joi.string().email().lowercase().required(),

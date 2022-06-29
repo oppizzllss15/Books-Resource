@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { readFileSync, writeFile } from "fs";
 import { v4 as uuidv4 } from "uuid";
+import { booksDatabase, userDataDatabase, userDatabasePath } from "../utils/utils";
 // import { registerSchema, loginSchema } from "../Schema/userSchema";
 var dotenv = require("dotenv").config();
 const Joi = require("joi");
@@ -10,16 +11,9 @@ const jwt_key = process.env.JWT_KEY;
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
 
-const userDatabasePath = `${__dirname}/../userDatabase.json`;
-
-if (!fs.existsSync(userDatabasePath)) {
-  fs.writeFileSync(userDatabasePath, "[]");
-}
-
-const userDataDatabase = JSON.parse(readFileSync(userDatabasePath).toString());
 
 const generateToken = (id: string) => {
-  const limit = 60 * 2;
+  const limit = 60 * 5;
   const expiry = Math.floor(Date.now() / 1000) + limit;
   let payload: Ipayload = {
     id,
@@ -30,11 +24,10 @@ const generateToken = (id: string) => {
 };
 
 const registerUser = async (req: Request, res: Response) => {
-  const { email, password, confirm_password } = req.body;
-
-  if(password !== confirm_password) {
-    res.render('signup', { message: 'Password does not match' })
-  }
+  const { email, password, confirmPassword } = req.body;
+  // if (password !== confirmPassword) {
+  //   res.render("signup", { message: "Password does not match" });
+  // }
   // check if user exists
   userDataDatabase.forEach((user: IUser) => {
     if (user.email === email) {
@@ -68,18 +61,18 @@ const registerUser = async (req: Request, res: Response) => {
     } else {
       if (user) {
         let userToken = generateToken(user.id);
-        res
-          .status(201)
-          .cookie("Token", userToken)
-          .json({
-            status: "Successful",
-            message: "Registeration successful",
-            data: {
-              userId: user.id,
-              username: user.name,
-              useremail: user.email,
-            },
-          });
+        res.status(201);
+        res.cookie("Token", userToken);
+        return res.redirect("/users/login");
+        // .json({
+        //   status: "Successful",
+        //   message: "Registeration successful",
+        //   data: {
+        //     userId: user.id,
+        //     username: user.name,
+        //     useremail: user.email,
+        //   },
+        // });
       }
       // res.status(201).json({
       //   status: "Successful",
@@ -98,7 +91,6 @@ const userLogin = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   // compare user info against database
   let matchUsers = userDataDatabase.find((el: IUser) => el.email === email);
-
   if (matchUsers) {
     const checkPasswords = await bcrypt.compare(password, matchUsers.password);
     if (checkPasswords) {

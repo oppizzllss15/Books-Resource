@@ -16,10 +16,10 @@ const router = express.Router();
 /* GET users listing. */
 router.get("/:page", function (req: Request, res: Response, next: NextFunction) {
   if (req.params.page === 'signup') {
-    res.render('signup', { title: 'Sign up' });
+    return res.render('signup', { title: 'Sign up' });
   }
   if(req.params.page === 'login') {
-    res.render('login', { title: 'Login' });
+    return res.render('login', { title: 'Login' });
   }
 });
 

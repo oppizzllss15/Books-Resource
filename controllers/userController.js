@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.displayUsers = exports.userLogin = exports.registerUser = exports.generateToken = void 0;
 const fs_1 = require("fs");
 const uuid_1 = require("uuid");
+const utils_1 = require("../utils/utils");
 // import { registerSchema, loginSchema } from "../Schema/userSchema";
 var dotenv = require("dotenv").config();
 const Joi = require("joi");
@@ -20,13 +21,8 @@ const jwt = require("jsonwebtoken");
 const jwt_key = process.env.JWT_KEY;
 const bcrypt = require("bcryptjs");
 const asyncHandler = require("express-async-handler");
-const userDatabasePath = `${__dirname}/../userDatabase.json`;
-if (!fs.existsSync(userDatabasePath)) {
-    fs.writeFileSync(userDatabasePath, "[]");
-}
-const userDataDatabase = JSON.parse((0, fs_1.readFileSync)(userDatabasePath).toString());
 const generateToken = (id) => {
-    const limit = 60 * 2;
+    const limit = 60 * 5;
     const expiry = Math.floor(Date.now() / 1000) + limit;
     let payload = {
         id,
@@ -37,12 +33,12 @@ const generateToken = (id) => {
 };
 exports.generateToken = generateToken;
 const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { email, password, confirm_password } = req.body;
-    if (password !== confirm_password) {
-        res.render('signup', { message: 'Password does not match' });
-    }
+    const { email, password, confirmPassword } = req.body;
+    // if (password !== confirmPassword) {
+    //   res.render("signup", { message: "Password does not match" });
+    // }
     // check if user exists
-    userDataDatabase.forEach((user) => {
+    utils_1.userDataDatabase.forEach((user) => {
         if (user.email === email) {
             res.status(400).json({
                 status: "Failed",
@@ -61,8 +57,8 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         password: hashedPassword,
     };
     // push file to database and write new user to database.
-    userDataDatabase.push(user);
-    (0, fs_1.writeFile)(userDatabasePath, JSON.stringify(userDataDatabase), (err) => {
+    utils_1.userDataDatabase.push(user);
+    (0, fs_1.writeFile)(utils_1.userDatabasePath, JSON.stringify(utils_1.userDataDatabase), (err) => {
         if (err) {
             res.status(400).json({
                 status: "Failed",
@@ -72,18 +68,18 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         else {
             if (user) {
                 let userToken = generateToken(user.id);
-                res
-                    .status(201)
-                    .cookie("Token", userToken)
-                    .json({
-                    status: "Successful",
-                    message: "Registeration successful",
-                    data: {
-                        userId: user.id,
-                        username: user.name,
-                        useremail: user.email,
-                    },
-                });
+                res.status(201);
+                res.cookie("Token", userToken);
+                return res.redirect("/users/login");
+                // .json({
+                //   status: "Successful",
+                //   message: "Registeration successful",
+                //   data: {
+                //     userId: user.id,
+                //     username: user.name,
+                //     useremail: user.email,
+                //   },
+                // });
             }
             // res.status(201).json({
             //   status: "Successful",
@@ -101,7 +97,7 @@ exports.registerUser = registerUser;
 const userLogin = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
     // compare user info against database
-    let matchUsers = userDataDatabase.find((el) => el.email === email);
+    let matchUsers = utils_1.userDataDatabase.find((el) => el.email === email);
     if (matchUsers) {
         const checkPasswords = yield bcrypt.compare(password, matchUsers.password);
         if (checkPasswords) {
@@ -132,7 +128,7 @@ const displayUsers = (req, res) => {
     res.status(200).json({
         status: "Successful",
         data: {
-            userDataDatabase,
+            userDataDatabase: utils_1.userDataDatabase,
         },
     });
 };
